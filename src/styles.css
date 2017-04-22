@@ -65,8 +65,6 @@ dt,strong,b{font-weight:700}
 
 
 
-
-
 body {
   font-family: "Crimson text", "Georgia", "Times new Roman", serif;
   color: #404040;
@@ -84,6 +82,10 @@ body {
     font-size: 125%;
   }
 }
+
+
+
+
 
 h1,
 h2,
@@ -163,11 +165,15 @@ nav li {
 
 nav a {
   display: block;
-  color: #433;
+  color: #444;
   text-decoration: none;
 }
+nav a:hover {
+  color: #333;
+}
 nav a.active {
-  border-bottom: 1px solid #d0d0d0;
+  color: #000;
+  text-decoration:underline;
 }
 
 header a  {

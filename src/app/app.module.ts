@@ -9,8 +9,9 @@ import { ArticleService } from './_services/article.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { routing } from './app.routing';
-import { MainPipe} from './_pipes/mainPipes.module';
+import { MainPipe } from './_pipes/mainPipes.module';
 import { ArchivesComponent } from './archives/archives.component';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ArchivesComponent } from './archives/archives.component';
     routing
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    { provide: LOCALE_ID, useValue: "fr-CH" },
   ],
   bootstrap: [AppComponent]
 })

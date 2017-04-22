@@ -35,9 +35,9 @@
  <nav>
     <div class="container">
       <ul>
-        <li><a outerLinkActive="active" routerLink="/">Accueil</a></li>
-        <li><a outerLinkActive="active" routerLink="archives">Archives</a></li>
-        <li><a outerLinkActive="active" routerLink="a-propos">À propos</a></li>
+        <li><a routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact:true}">Accueil</a></li>
+        <li><a routerLinkActive="active" routerLink="/archives" [routerLinkActiveOptions]="{exact:true}">Archives</a></li>
+        <li><a routerLinkActive="active" routerLink="/a-propos" [routerLinkActiveOptions]="{exact:true}">À propos</a></li>
       </ul>
     </div>
   </nav>

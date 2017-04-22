@@ -10,6 +10,7 @@ import { ArchivesComponent } from './archives/archives.component';
 
 
 const appRoutes: Routes = [
+    { path: 'accueil', redirectTo: '', pathMatch: 'full'},
     { path: '', component: HomeComponent},
     { path: 'a-propos', component: AboutComponent},
     { path: 'archives', component: ArchivesComponent},

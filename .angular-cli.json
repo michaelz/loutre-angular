@@ -9,6 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
+        "sites", // for drupal images
         "favicon.ico"
       ],
       "index": "index.html",

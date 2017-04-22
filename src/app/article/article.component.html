@@ -6,7 +6,7 @@
 
     <footer class="submitted container">
       <h4>
-        <span class="author" rel="sioc:has_creator">Par <a routerLink="a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw" typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a></span><br>
+        <span class="author" rel="sioc:has_creator">Par <a routerLink="/a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw" typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a></span><br>
         <span class="date" property="dc:date dc:created" datatype="xsd:dateTime">{{article?.pub_date | date}}</span>
       </h4>
     </footer>
@@ -22,9 +22,12 @@
   </section>
   <section class="body">
     <div class="container">
-      <div class="field-item" property="content:encoded" [innerHTML]="article?.body | safeHtml">
-        Body Content !
-      </div>
+      <div class="field-item" property="content:encoded" [innerHTML]="article?.body | safeHtml"> </div>
     </div>
   </section>
 </article>
+
+<div class="container eof">
+  <br><br>
+  <code>_EOF_</code>
+</div>
