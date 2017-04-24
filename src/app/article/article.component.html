@@ -27,7 +27,8 @@
   </section>
 </article>
 <section class="comments container">
-	<disqus shortname="loutre-ch" [identifier]="article?.slug"></disqus>
+	{{article?.slug}}
+	<disqus shortname="loutre-ch" [identifier]="'node/' + article?.id"></disqus>
 </section>
 
 <div class="container eof">
