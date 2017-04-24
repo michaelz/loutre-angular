@@ -13,6 +13,8 @@ import { MainPipe } from './_pipes/mainPipes.module';
 import { ArchivesComponent } from './archives/archives.component';
 import { LOCALE_ID } from '@angular/core';
 
+import { DisqusModule } from "ng2-awesome-disqus"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { LOCALE_ID } from '@angular/core';
     MainPipe,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    DisqusModule
   ],
   providers: [
     ArticleService,

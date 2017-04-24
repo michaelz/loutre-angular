@@ -4,6 +4,7 @@
     <h1 class="article-title">
       <span [innerHTML]="firstArticle?.title | safeHtml"></span>
     </h1>
+    <p><a [routerLink]="firstArticle?.slug">Permalink</a></p>
   </div>
 
   <footer class="submitted container">
