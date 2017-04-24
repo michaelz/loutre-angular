@@ -1,10 +1,11 @@
+<section class="home_intro container">
+</section>
 <section class="article-header">
   <div class="container">
 
-    <h1 class="article-title">
+    <h2 class="article-title">
       <span [innerHTML]="firstArticle?.title | safeHtml"></span>
-    </h1>
-    <p><a [routerLink]="firstArticle?.slug">Permalink</a></p>
+    </h2>
   </div>
 
   <footer class="submitted container">
@@ -14,6 +15,7 @@
     </h4>
   </footer>
 
+    <p><a [routerLink]="firstArticle?.slug">Permalink &amp; Commentaires</a></p>
 </section>
 
 <section class="teaser">
@@ -41,9 +43,9 @@
   <div class="article-list">
     <div *ngFor="let article of homeArticles">
       <a routerLink="{{article.slug}}">
-        <h3 [innerHTML]="article.title | safeHtml"></h3>
+        <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0"></h4>
       </a>
-      <p><span class="date">{{article.pub_date | date:'dd.mm.y'}}</span> - <span [innerHTML]="article.teaser |  truncate:10 | safeHtml"></span></p>
+      <p><span class="date"><strong>{{article.pub_date | date:'dd.MM.y'}}</strong></span> - <span [innerHTML]="article.teaser |  truncate:10 | safeHtml"></span> <a routerLink="{{article.slug}}">Allons-y</a></p>
       <hr>
     </div>
   </div>

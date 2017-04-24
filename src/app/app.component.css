@@ -1,0 +1,9 @@
+#footer {
+	color:#ddd;
+	background: #4d4d4d;
+	overflow:hidden;
+	padding-top: 2em;
+}
+#footer a {
+	color:white;
+}
