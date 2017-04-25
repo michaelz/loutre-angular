@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
     const NBHOMEARTICLES: number = 6
     
+    this.titleService.setTitle('Loutre.ch | Le libre pour les fainéants');
+
     if (!this._appComponent.articles) {
       this._appComponent.loadArticles()
         .subscribe(articles => {
