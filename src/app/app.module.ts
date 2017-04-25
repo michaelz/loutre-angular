@@ -14,6 +14,8 @@ import { ArchivesComponent } from './archives/archives.component';
 import { LOCALE_ID } from '@angular/core';
 
 import { DisqusModule } from "ng2-awesome-disqus"
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { DisqusModule } from "ng2-awesome-disqus"
     FormsModule,
     HttpModule,
     routing,
-    DisqusModule
+    DisqusModule,
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
   providers: [
     ArticleService,

@@ -1,6 +1,7 @@
 import { Pipe, Component } from '@angular/core';
 import { Article } from './_models/article.model';
 import { ArticleService } from './_services/article.service';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 
 @Component({
@@ -12,7 +13,10 @@ export class AppComponent {
 
   articles: Article[];
   private sub: any;
-  constructor(public _articleService: ArticleService) { }
+  constructor(
+    public _articleService: ArticleService,
+    public angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
+  ) { }
 
 
   loadArticles() {
