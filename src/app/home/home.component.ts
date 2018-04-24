@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../_models/article.model';
 import { AppComponent } from '../app.component';
 import { Title } from '@angular/platform-browser';
+import { routerTransition } from '../router.animations';
 
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  animations: [ routerTransition ],
+
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {

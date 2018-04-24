@@ -2,7 +2,7 @@
 </section>
 <section class="article-header">
   <div class="container">
-
+      <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
     <h2 class="article-title">
       <span [innerHTML]="firstArticle?.title | safeHtml"></span>
     </h2>

@@ -3,12 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Article } from '../_models/article.model';
 import { AppComponent } from '../app.component';
 import { Title } from '@angular/platform-browser';
+import { routerTransition } from '../router.animations';
 
 
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
+  animations: [ routerTransition ],
+
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {

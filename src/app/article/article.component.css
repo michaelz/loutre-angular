@@ -4,3 +4,11 @@
 	margin: 2em 0 0 0;
 }
 
+.banner {
+	height: 40vh;
+	background-color:transparent;
+	background-size: cover;
+	background-position:center center;
+	width: 100%;
+	
+}

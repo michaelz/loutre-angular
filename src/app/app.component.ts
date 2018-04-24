@@ -2,12 +2,17 @@ import { Pipe, Component } from '@angular/core';
 import { Article } from './_models/article.model';
 import { ArticleService } from './_services/article.service';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { routerTransition } from './router.animations';
+
+
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [ routerTransition ],
+
 })
 export class AppComponent {
 
@@ -22,6 +27,10 @@ export class AppComponent {
   loadArticles() {
     return this._articleService.getData()
 
+  }
+
+  getState(outlet) {
+    return outlet.activatedRouteData.state;
   }
 
   ngOnInit() {

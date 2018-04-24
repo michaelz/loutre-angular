@@ -5,3 +5,14 @@ display:block;
 margin-top: 3em;
 margin-bottom: 3em;
 }
+
+
+.banner {
+	height: 20vh;
+	background-color:transparent;
+	background-size: cover;
+	background-position:center center;
+    width: 100%;
+    margin-bottom: 2em;
+	
+}

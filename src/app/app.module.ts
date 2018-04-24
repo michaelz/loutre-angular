@@ -18,6 +18,7 @@ import { HttpModule } from '@angular/http';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DisqusModule } from "ngx-disqus";
 
@@ -32,6 +33,7 @@ import { DisqusModule } from "ngx-disqus";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MainPipe,
     FormsModule,
     HttpModule,
