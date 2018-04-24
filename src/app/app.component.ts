@@ -1,7 +1,7 @@
 import { Pipe, Component } from '@angular/core';
 import { Article } from './_models/article.model';
 import { ArticleService } from './_services/article.service';
-import { Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 
 @Component({

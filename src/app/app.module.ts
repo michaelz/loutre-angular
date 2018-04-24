@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import localeFrCH from '@angular/common/locales/fr-CH';
+import localeFrCHExtra from '@angular/common/locales/extra/fr-CH';
+
 
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
@@ -12,9 +13,13 @@ import { routing } from './app.routing';
 import { MainPipe } from './_pipes/mainPipes.module';
 import { ArchivesComponent } from './archives/archives.component';
 import { LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { DisqusModule } from "ng2-awesome-disqus"
-import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
+import { DisqusModule } from "ngx-disqus";
 
 
 @NgModule({
@@ -31,12 +36,12 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
     FormsModule,
     HttpModule,
     routing,
-    DisqusModule,
+    DisqusModule.forRoot('loutre-ch'),
+
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
   providers: [
     ArticleService,
-    { provide: LOCALE_ID, useValue: "fr-CH" },
   ],
   bootstrap: [AppComponent]
 })
