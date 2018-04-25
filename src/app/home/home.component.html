@@ -1,56 +1,75 @@
-<section class="home_intro container">
-</section>
-<section class="article-header">
-  <div class="container">
-      <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
-    <h2 class="article-title">
-      <span [innerHTML]="firstArticle?.title | safeHtml"></span>
-    </h2>
-  </div>
-
-  <footer class="submitted container">
-    <h4>
-      <span class="author" rel="sioc:has_creator">Par <a routerLink="a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw" typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a></span><br>
-      <span class="date" property="dc:date dc:created" content="2016-08-31T15:04:57+02:00" datatype="xsd:dateTime">{{firstArticle?.pub_date | date}}</span>
-    </h4>
-  </footer>
-
-    <p><a [routerLink]="firstArticle?.slug">Permalink &amp; Commentaires</a></p>
-</section>
-
-<section class="teaser">
-  <div class="container">
-    <div class="field-item teaser-field" property="schema:summary schema:description">
-      <p [innerHTML]="firstArticle?.teaser">
-      </p>
-    </div>
-  </div>
-</section>
-<section class="body">
-  <div class="container">
-    <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body">
-    </div>
-  </div>
-</section>
-
-<div class="container">
-  <hr>
-  <section class="article-header">
-    
-      <h2>Derniers articles</h2>
-    
-  </section>
-  <div class="article-list">
-    <div *ngFor="let article of homeArticles">
-      <a routerLink="{{article.slug}}">
-        <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0"></h4>
-      </a>
-      <p><span class="date"><strong>{{article.pub_date | date:'dd.MM.y'}}</strong></span> - <span [innerHTML]="article.teaser |  truncate:10 | safeHtml"></span> <a routerLink="{{article.slug}}">Allons-y</a></p>
-      <hr>
-    </div>
-  </div>
-
+<div *ngIf="loading" class="cssload-container">
+  <ul class="cssload-flex-container">
+    <li>
+      <span class="cssload-loading"></span>
+    </li>
+  </ul>
 </div>
+<ng-container *ngIf="firstArticle">
+  <section class="article-header">
+    <div class="container">
+      <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
+      <h2 class="article-title">
+        <span [innerHTML]="firstArticle?.title | safeHtml"></span>
+      </h2>
+    </div>
+
+    <footer class="submitted container">
+      <h4>
+        <span class="author" rel="sioc:has_creator">Par
+          <a routerLink="a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw"
+            typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a>
+        </span>
+        <br>
+        <span class="date" property="dc:date dc:created" content="2016-08-31T15:04:57+02:00" datatype="xsd:dateTime">{{firstArticle?.pub_date | date}}</span>
+      </h4>
+    </footer>
+
+    <p>
+      <a [routerLink]="firstArticle?.slug">Permalink &amp; Commentaires</a>
+    </p>
+  </section>
+
+  <section class="teaser">
+    <div class="container">
+      <div class="field-item teaser-field" property="schema:summary schema:description">
+        <p [innerHTML]="firstArticle?.teaser">
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="body">
+    <div class="container">
+      <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body">
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <hr>
+    <section class="article-header">
+
+      <h2>Derniers articles</h2>
+
+    </section>
+    <div class="article-list">
+      <div *ngFor="let article of homeArticles">
+        <a routerLink="{{article.slug}}">
+          <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0"></h4>
+        </a>
+        <p>
+          <span class="date">
+            <strong>{{article.pub_date | date:'dd.MM.y'}}</strong>
+          </span> -
+          <span [innerHTML]="article.teaser |  truncate:10 | safeHtml"></span>
+          <a routerLink="{{article.slug}}">Allons-y</a>
+        </p>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
 <div class="container">
   <a class="archives-link" routerLink="archives">Archives</a>
 </div>

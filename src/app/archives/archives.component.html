@@ -7,9 +7,21 @@
 
   <div class="article-list">
     <div *ngFor="let article of articles">
-      <a [routerLink]="article.slug"><h3 [innerHTML]="article.title | safe:'html'"></h3></a>
-      <p><span class="date">{{article.pub_date | date:'dd.mm.y'}}</span> - <span [innerHTML]="article.teaser |  truncate:10 | safe:'html'"></span></p>
+      <a [routerLink]="article.slug">
+        <h3 [innerHTML]="article.title | safe:'html'"></h3>
+      </a>
+      <p>
+        <span class="date">{{article.pub_date | date:'dd.mm.y'}}</span> -
+        <span [innerHTML]="article.teaser |  truncate:10 | safe:'html'"></span>
+      </p>
       <hr>
+    </div>
+    <div *ngIf="loading" class="cssload-container">
+      <ul class="cssload-flex-container">
+        <li>
+          <span class="cssload-loading"></span>
+        </li>
+      </ul>
     </div>
   </div>
 

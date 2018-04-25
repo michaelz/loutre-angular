@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loutre.ch</title>
+  <meta name="description" content ="Des articles de libriste geek, souvent en rapport avec le développement web, Linux et la création numérique." />
+  <title>Loutre.ch - Le libre pour les fainéants</title>
   <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicons/apple-touch-icon-114x114.png">
@@ -30,6 +31,208 @@
       margin-top: 45vh;
     }
 
+
+    /* Loading */
+
+    .cssload-container * {
+      box-sizing: border-box;
+      -o-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    .cssload-container {
+      margin: 19px auto 0 auto;
+      max-width: 545px;
+
+    }
+
+    .cssload-container ul li {
+      list-style: none;
+    }
+
+    .cssload-flex-container {
+      display: flex;
+      display: -o-flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+      display: -moz-flex;
+      flex-direction: row;
+      -o-flex-direction: row;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .cssload-flex-container li {
+      padding: 10px;
+      height: 97px;
+      width: 97px;
+      margin: 29px 19px;
+      position: relative;
+      text-align: center;
+    }
+
+    .cssload-loading,
+    .cssload-loading:after,
+    .cssload-loading:before {
+      display: inline-block;
+      position: relative;
+      width: 5px;
+      height: 49px;
+      background: rgb(150, 150, 150);
+      margin-top: 5px;
+      border-radius: 975px;
+      -o-border-radius: 975px;
+      -ms-border-radius: 975px;
+      -webkit-border-radius: 975px;
+      -moz-border-radius: 975px;
+      animation: cssload-upDown2 1.6s ease infinite;
+      -o-animation: cssload-upDown2 1.6s ease infinite;
+      -ms-animation: cssload-upDown2 1.6s ease infinite;
+      -webkit-animation: cssload-upDown2 1.6s ease infinite;
+      -moz-animation: cssload-upDown2 1.6s ease infinite;
+      animation-direction: alternate;
+      -o-animation-direction: alternate;
+      -ms-animation-direction: alternate;
+      -webkit-animation-direction: alternate;
+      -moz-animation-direction: alternate;
+      animation-delay: 0.4s;
+      -o-animation-delay: 0.4s;
+      -ms-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+      -moz-animation-delay: 0.4s;
+    }
+
+    .cssload-loading:after,
+    .cssload-loading:before {
+      position: absolute;
+      content: '';
+      animation: cssload-upDown 1.6s ease infinite;
+      -o-animation: cssload-upDown 1.6s ease infinite;
+      -ms-animation: cssload-upDown 1.6s ease infinite;
+      -webkit-animation: cssload-upDown 1.6s ease infinite;
+      -moz-animation: cssload-upDown 1.6s ease infinite;
+      animation-direction: alternate;
+      -o-animation-direction: alternate;
+      -ms-animation-direction: alternate;
+      -webkit-animation-direction: alternate;
+      -moz-animation-direction: alternate;
+    }
+
+    .cssload-loading:before {
+      left: -10px;
+    }
+
+    .cssload-loading:after {
+      left: 10px;
+      animation-delay: 0.8s;
+      -o-animation-delay: 0.8s;
+      -ms-animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+    }
+
+
+
+
+    @keyframes cssload-upDown {
+      from {
+        transform: translateY(19px);
+      }
+      to {
+        transform: translateY(-19px);
+      }
+    }
+
+    @-o-keyframes cssload-upDown {
+      from {
+        -o-transform: translateY(19px);
+      }
+      to {
+        -o-transform: translateY(-19px);
+      }
+    }
+
+    @-ms-keyframes cssload-upDown {
+      from {
+        -ms-transform: translateY(19px);
+      }
+      to {
+        -ms-transform: translateY(-19px);
+      }
+    }
+
+    @-webkit-keyframes cssload-upDown {
+      from {
+        -webkit-transform: translateY(19px);
+      }
+      to {
+        -webkit-transform: translateY(-19px);
+      }
+    }
+
+    @-moz-keyframes cssload-upDown {
+      from {
+        -moz-transform: translateY(19px);
+      }
+      to {
+        -moz-transform: translateY(-19px);
+      }
+    }
+
+    @keyframes cssload-upDown2 {
+      from {
+        transform: translateY(29px);
+      }
+      to {
+        transform: translateY(-19px);
+      }
+    }
+
+    @-o-keyframes cssload-upDown2 {
+      from {
+        -o-transform: translateY(29px);
+      }
+      to {
+        -o-transform: translateY(-19px);
+      }
+    }
+
+    @-ms-keyframes cssload-upDown2 {
+      from {
+        -ms-transform: translateY(29px);
+      }
+      to {
+        -ms-transform: translateY(-19px);
+      }
+    }
+
+    @-webkit-keyframes cssload-upDown2 {
+      from {
+        -webkit-transform: translateY(29px);
+      }
+      to {
+        -webkit-transform: translateY(-19px);
+      }
+    }
+
+    @-moz-keyframes cssload-upDown2 {
+      from {
+        -moz-transform: translateY(29px);
+      }
+      to {
+        -moz-transform: translateY(-19px);
+      }
+    }
+
     body {
       font-family: "Crimson text", "Georgia", "Times new Roman", serif;
       color: #404040;
@@ -47,7 +250,6 @@
         font-size: 125%;
       }
     }
-
   </style>
 </head>
 
@@ -55,15 +257,24 @@
 
 
   <app-root>
-    <div id="pre-loading">Elle arrive, la loutre...</div>
+    <div  id="pre-loading" class="cssload-container">
+      <ul class="cssload-flex-container">
+        <li>
+          <span class="cssload-loading"></span>
+        </li>
+      </ul>
+      <p>La loutre arrive...</p>
+    </div>
   </app-root>
 
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.fr"></script>
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-3206980-1', 'auto');
     //ga('send', 'pageview'); // Done by Angulartics // https://www.npmjs.com/package/angulartics2

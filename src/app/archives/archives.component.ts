@@ -14,7 +14,7 @@ import { routerTransition } from '../router.animations';
 })
 export class ArchivesComponent implements OnInit {
   articles: Article[];
-  
+  loading = false;
   constructor(private _appComponent: AppComponent,private titleService: Title) {}
 
 
@@ -24,9 +24,14 @@ export class ArchivesComponent implements OnInit {
   this.titleService.setTitle('Archives | Loutre.ch');
   
   if (!this._appComponent.articles) {
+    this.loading = true;
       this._appComponent.loadArticles()
         .subscribe(articles => {
+          this.loading = false;
           this.articles = articles;
+        
+        }, error => {
+          this.loading = false;
         });
     } else {
       this.articles = this._appComponent.articles;

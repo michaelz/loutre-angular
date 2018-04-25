@@ -18,7 +18,7 @@ export class ArticleComponent implements OnInit {
 
   article: Article;
   slug: string;
-
+  loading = false;
 
   constructor(private route: ActivatedRoute, private _appComponent: AppComponent,private titleService: Title) { }
 
@@ -43,13 +43,17 @@ htmlDecode(input)
       let slug: string = '/' + urlArray.join('/');
 
       if (!this._appComponent.articles) {
+        this.loading = true;
         this._appComponent.loadArticles()
           .subscribe(articles => {
+            this.loading = false;
             this.article = articles.filter(function (article) {
               return article.slug === slug;
             })[0];              
             
             this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
+          }, error => {
+            this.loading = false;
           });
       } else {
         this.article = this._appComponent.articles.filter(function (article) {
@@ -57,7 +61,6 @@ htmlDecode(input)
           return article.slug == slug;
         })[0];
         this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
-        
       }
     })
 

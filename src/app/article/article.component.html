@@ -1,3 +1,10 @@
+<div *ngIf="loading" class="cssload-container">
+  <ul class="cssload-flex-container">
+    <li>
+      <span class="cssload-loading"></span>
+    </li>
+  </ul>
+</div>
 <div class="banner" *ngIf="article && article.top_image" [style.backgroundImage]="'url('+ article?.top_image+')'"></div>
 
 <article *ngIf="article">
