@@ -4,7 +4,7 @@ import { Article } from '../_models/article.model';
 import { AppComponent } from '../app.component';
 import { Title } from '@angular/platform-browser';
 import { routerTransition } from '../router.animations';
-
+import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,7 +20,11 @@ export class ArticleComponent implements OnInit {
   slug: string;
   loading = false;
 
-  constructor(private route: ActivatedRoute, private _appComponent: AppComponent,private titleService: Title) { }
+  constructor(private route: ActivatedRoute,
+     private _appComponent: AppComponent,
+     private titleService: Title,
+     private meta: Meta
+    ) { }
 
 
 htmlDecode(input)
@@ -39,19 +43,23 @@ htmlDecode(input)
       segments.forEach(element => {
         urlArray.push(element.path);
       });
+      
 
       let slug: string = '/' + urlArray.join('/');
+      
 
       if (!this._appComponent.articles) {
         this.loading = true;
         this._appComponent.loadArticles()
           .subscribe(articles => {
             this.loading = false;
-            this.article = articles.filter(function (article) {
-              return article.slug === slug;
-            })[0];              
+            this.article = articles.filter(function (article) {              
+              return article.slug === slug || decodeURI(article.slug) === slug;
+            })[0];
+
             
             this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
+            this.meta.updateTag({ name: 'description', content: this.article.teaser });
           }, error => {
             this.loading = false;
           });
@@ -61,6 +69,8 @@ htmlDecode(input)
           return article.slug == slug;
         })[0];
         this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
+        this.meta.updateTag({ name: 'description', content: this.article.teaser });
+
       }
     })
 
