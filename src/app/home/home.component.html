@@ -5,7 +5,8 @@
     </li>
   </ul>
 </div>
-<ng-container *ngIf="firstArticle">
+<ng-container *ngIf="firstArticle" >
+  <div itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <section class="article-header">
     <div class="container">
       <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
@@ -21,7 +22,7 @@
             typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a>
         </span>
         <br>
-        <span class="date" property="dc:date dc:created" content="2016-08-31T15:04:57+02:00" datatype="xsd:dateTime">{{firstArticle?.pub_date | date}}</span>
+        <span class="date" ><time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date" [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time></span>
       </h4>
     </footer>
 
@@ -32,7 +33,7 @@
 
   <section class="teaser">
     <div class="container">
-      <div class="field-item teaser-field" property="schema:summary schema:description">
+      <div class="field-item teaser-field" property="schema:summary schema:description" itemprop="description">
         <p [innerHTML]="firstArticle?.teaser">
         </p>
       </div>
@@ -40,10 +41,11 @@
   </section>
   <section class="body">
     <div class="container">
-      <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body">
+      <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body" itemprop="articleBody">
       </div>
     </div>
   </section>
+  </div>
 
   <div class="container">
     <hr>
@@ -53,15 +55,13 @@
 
     </section>
     <div class="article-list">
-      <div *ngFor="let article of homeArticles">
+      <div *ngFor="let article of homeArticles" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
         <a routerLink="{{article.slug}}">
-          <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0"></h4>
+          <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0" itemprop="name"></h4>
         </a>
         <p>
-          <span class="date">
-            <strong>{{article.pub_date | date:'dd.MM.y'}}</strong>
-          </span> -
-          <span [innerHTML]="article.teaser |  truncate:10 | safeHtml"></span>
+          <span class="date" ><strong><time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date" [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time></strong></span> - 
+          <span [innerHTML]="article.teaser |  truncate:10 | safeHtml" itemprop="description articleBody"></span>
           <a routerLink="{{article.slug}}">Allons-y</a>
         </p>
         <hr>

@@ -7,23 +7,24 @@
 </div>
 <div  class="banner" *ngIf="article && article.top_image" [style.backgroundImage]="'url('+ article?.top_image+')'"></div>
 
-<article *ngIf="article" itemscope itemtype="http://schema.org/Article">
+<article *ngIf="article" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <img [src]="article?.top_image" alt="top image" itemprop="image" [style.display]="'none'"/>
+
   <section class="article-header">
     <div class="">
-      <h1 class="article-title" [innerHTML]="article?.title | safeHtml"></h1>
+      <h1 class="article-title" [innerHTML]="article?.title | safeHtml" itemprop="headline"></h1>
     </div>
 
     <footer class="submitted container" *ngIf="article && article.title != '404'">
       <h4>
-        <span class="author" rel="sioc:has_creator">Par <a routerLink="/a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/a-propos" typeof="sioc:UserAccount" property="foaf:name" datatype="" itemprop="author" itemscope itemtype="http://schema.org/Person">Michaël Zwyssig</a></span><br>
-        <span class="date" property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date">{{article?.pub_date | date}}</span>
+        <span class="author" rel="sioc:has_creator">Par <a routerLink="/a-propos" title="À propos" class="username" xml:lang="" about="/a-propos" typeof="sioc:UserAccount" property="foaf:name" datatype="" itemprop="author" rel="author" itemscope itemtype="http://schema.org/Person">Michaël Zwyssig</a></span><br>
+        <span class="date" ><time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date" [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time></span>
       </h4>
     </footer>
 
   </section>
 
-  <section class="teaser">
+  <section class="teaser" itemprop:"description" >
     <div class="container">
       <div class="field-item teaser-field" property="schema:summary schema:description">
         <p [innerHTML]="article?.teaser | safe:'html'"></p>
