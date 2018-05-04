@@ -33,7 +33,6 @@ htmlDecode(input)
   return doc.documentElement.textContent;
 }
 
-
   ngOnInit() {
 
     window.scrollTo(0,0);
@@ -53,34 +52,33 @@ htmlDecode(input)
         this._appComponent.loadArticles()
           .subscribe(articles => {
             this.loading = false;
-            this.article = articles.filter(function (article) {              
-              return article.slug === slug || decodeURI(article.slug) === slug;
-            })[0];
-
-            
-            this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
-            this.meta.updateTag({ name: 'description', content: this.article.teaser });
+            this.setArticle(articles, slug);
           }, error => {
             this.loading = false;
           });
       } else {
-        this.article = this._appComponent.articles.filter(function (article) {
-          
-          return article.slug == slug;
-        })[0];
-        this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
-        this.meta.updateTag({ name: 'description', content: this.article.teaser });
+        this.setArticle(this._appComponent.articles, slug);
 
       }
     })
+  }
 
+  setArticle(articles, slug) {
+    let arts = articles.filter(function (article) {              
+      return article.slug === slug || decodeURI(article.slug) === slug;
+    });
 
-
-
-
-
-
-
+    if (arts && arts.length > 0) {
+      this.article = arts[0];
+    } else {
+      this.article = new Article();
+      this.article.title = '404';
+      this.article.teaser = 'Ceci est une erreur quatre cent quatre.'
+      this.article.body = 'Désolé, la page demandée n\'a pas été trouvée.<br><br>';
+    }
+    
+    this.titleService.setTitle(this.htmlDecode(this.article.title) +" | Loutre.ch");
+    this.meta.updateTag({ name: 'description', content: this.article.teaser });
   }
 
   ngOnDestroy() {
