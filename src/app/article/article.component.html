@@ -5,9 +5,10 @@
     </li>
   </ul>
 </div>
-<div class="banner" *ngIf="article && article.top_image" [style.backgroundImage]="'url('+ article?.top_image+')'"></div>
+<div  class="banner" *ngIf="article && article.top_image" [style.backgroundImage]="'url('+ article?.top_image+')'"></div>
 
-<article *ngIf="article">
+<article *ngIf="article" itemscope itemtype="http://schema.org/Article">
+  <img [src]="article?.top_image" alt="top image" itemprop="image" [style.display]="'none'"/>
   <section class="article-header">
     <div class="">
       <h1 class="article-title" [innerHTML]="article?.title | safeHtml"></h1>
@@ -15,8 +16,8 @@
 
     <footer class="submitted container" *ngIf="article && article.title != '404'">
       <h4>
-        <span class="author" rel="sioc:has_creator">Par <a routerLink="/a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw" typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a></span><br>
-        <span class="date" property="dc:date dc:created" datatype="xsd:dateTime">{{article?.pub_date | date}}</span>
+        <span class="author" rel="sioc:has_creator">Par <a routerLink="/a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/a-propos" typeof="sioc:UserAccount" property="foaf:name" datatype="" itemprop="author" itemscope itemtype="http://schema.org/Person">Michaël Zwyssig</a></span><br>
+        <span class="date" property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date">{{article?.pub_date | date}}</span>
       </h4>
     </footer>
 
@@ -29,7 +30,7 @@
       </div>
     </div>
   </section>
-  <section class="body">
+  <section class="body" itemprop="articleBody">
     <div class="container">
       <div class="field-item" property="content:encoded" [innerHTML]="article?.body | safeHtml"> </div>
     </div>
@@ -40,3 +41,4 @@
 	<disqus [identifier]="'node/' + article?.id"></disqus>
 	</div>
 </section>
+<meta itemprop="url" content="https://loutre.ch{{slug}}">
