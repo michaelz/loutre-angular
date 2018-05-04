@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "_redirects",
-        "sitemap.xml"
+        "sitemap.xml",
+        "sitemap.xsl"
       ],
       "index": "index.html",
       "main": "main.ts",
