@@ -5,46 +5,53 @@
     </li>
   </ul>
 </div>
-<ng-container *ngIf="firstArticle" >
+<ng-container *ngIf="firstArticle">
   <div itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <section class="article-header">
-    <div class="container">
-      <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
-      <h2 class="article-title">
-        <span [innerHTML]="firstArticle?.title | safeHtml"></span>
-      </h2>
-    </div>
-
-    <footer class="submitted container">
-      <h4>
-        <span class="author" rel="sioc:has_creator">Par
-          <a routerLink="a-propos" title="Voir le profil utilisateur." class="username" xml:lang="" about="/users/mzw"
-            typeof="sioc:UserAccount" property="foaf:name" datatype="">Michaël Zwyssig</a>
-        </span>
-        <br>
-        <span class="date" ><time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date" [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time></span>
-      </h4>
-    </footer>
-
-    <p>
-      <a [routerLink]="firstArticle?.slug">Permalink &amp; Commentaires</a>
-    </p>
-  </section>
-
-  <section class="teaser">
-    <div class="container">
-      <div class="field-item teaser-field" property="schema:summary schema:description" itemprop="description">
-        <p [innerHTML]="firstArticle?.teaser">
-        </p>
+    <section class="article-header">
+      <div class="container">
+        <div class="banner" *ngIf="firstArticle && firstArticle.top_image" [style.backgroundImage]="'url('+ firstArticle.top_image+')'"></div>
+        <h2 class="article-title">
+          <span [innerHTML]="firstArticle?.title | safeHtml"></span>
+        </h2>
       </div>
-    </div>
-  </section>
-  <section class="body">
-    <div class="container">
-      <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body" itemprop="articleBody">
+
+      <footer class="submitted container">
+        <h4>
+          <span class="author" rel="sioc:has_creator">
+            Par
+            <a routerLink="/a-propos" title="À propos" class="username" xml:lang="" about="/a-propos" typeof="sioc:UserAccount"
+              property="foaf:name" datatype="" itemprop="author" rel="author" itemscope itemtype="http://schema.org/Person">
+              Michaël Zwyssig
+            </a>
+          </span>
+
+          <br>
+          <span class="date">
+            <time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date"
+              [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time>
+          </span>
+        </h4>
+      </footer>
+
+      <p>
+        <a [routerLink]="firstArticle?.slug">Permalink &amp; Commentaires</a>
+      </p>
+    </section>
+
+    <section class="teaser">
+      <div class="container">
+        <div class="field-item teaser-field" property="schema:summary schema:description" itemprop="description">
+          <p [innerHTML]="firstArticle?.teaser">
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="body">
+      <div class="container">
+        <div class="field-item" property="content:encoded" [innerHTML]="firstArticle?.body" itemprop="articleBody">
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="container">
@@ -60,7 +67,12 @@
           <h4 [innerHTML]="article.title | safeHtml" style="margin-bottom:0" itemprop="name"></h4>
         </a>
         <p>
-          <span class="date" ><strong><time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date" [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time></strong></span> - 
+          <span class="date">
+            <strong>
+              <time property="dc:date dc:created" datatype="xsd:dateTime" itemprop="datePublished" [attr.content]="article?.pub_date"
+                [attr.datetime]="article?.pub_date">{{article?.pub_date | date:'dd.MM.y'}}</time>
+            </strong>
+          </span> -
           <span [innerHTML]="article.teaser |  truncate:10 | safeHtml" itemprop="description articleBody"></span>
           <a routerLink="{{article.slug}}">Allons-y</a>
         </p>
