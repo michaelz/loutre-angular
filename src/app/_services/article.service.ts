@@ -7,7 +7,7 @@ export class ArticleService {
     constructor(public http: Http) { }
 
     getData() {
-        return this.http.get("https://drupal.loutre.ch")
+        return this.http.get("http://api.loutre.ch")
             .map((res: Response) => { 
                 let result;
                 
