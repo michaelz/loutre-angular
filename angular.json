@@ -18,6 +18,7 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
+              "src/robots.txt",
               "src/_redirects",
               "src/sitemap.xml",
               "src/sitemap.xsl",
