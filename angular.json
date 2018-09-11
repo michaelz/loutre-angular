@@ -20,7 +20,8 @@
               "src/assets",
               "src/_redirects",
               "src/sitemap.xml",
-              "src/sitemap.xsl"
+              "src/sitemap.xsl",
+              "src/manifest.json"
             ],
             "styles": [
               "src/styles.css"
@@ -43,7 +44,8 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },
@@ -79,7 +81,8 @@
               "src/assets",
               "src/_redirects",
               "src/sitemap.xml",
-              "src/sitemap.xsl"
+              "src/sitemap.xsl",
+              "src/manifest.json"
             ]
           }
         },
