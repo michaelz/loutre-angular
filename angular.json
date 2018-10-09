@@ -22,7 +22,8 @@
               "src/_redirects",
               "src/sitemap.xml",
               "src/sitemap.xsl",
-              "src/manifest.json"
+              "src/manifest.json",
+              "https://www.loutre.ch"
             ],
             "styles": [
               "src/styles.css"

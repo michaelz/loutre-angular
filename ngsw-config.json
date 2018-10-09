@@ -8,7 +8,8 @@
         "/assets/favicons/favicon.ico",
         "/index.html",
         "/*.css",
-        "/*.js"
+        "/*.js",
+        "/*.json"
       ]
     }
   }, {
@@ -28,7 +29,7 @@
   "dataGroups": [
     {
       "name": "api",
-      "urls": ["https://api.loutre.ch"],
+      "urls": ["https://api.loutre.ch/**, https://api.loutre.ch"],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 50,
